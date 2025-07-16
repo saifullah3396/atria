@@ -1,0 +1,7 @@
+_target_: atria_transforms.core.torchvision.TorchvisionTransform
+_partial_: false
+transform: Resize
+interpolation: 2
+size:
+- 224
+- 224

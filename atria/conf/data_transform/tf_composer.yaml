@@ -1,0 +1,4 @@
+_target_: atria_transforms.core.tf_composer.TransformsComposer
+_partial_: false
+transforms: ???
+apply_path: null

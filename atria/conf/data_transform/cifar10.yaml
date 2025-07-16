@@ -1,0 +1,8 @@
+_target_: atria_transforms.core.image.Cifar10ImageTransform
+_partial_: false
+apply_path: null
+mean: null
+std: null
+pad_size: 4
+crop_size: 32
+train: false

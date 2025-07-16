@@ -1,0 +1,18 @@
+# @package __global__
+defaults:
+- _self_
+- task_pipeline: ???
+hydra:
+  run:
+    dir: ${output_dir}
+  output_subdir: hydra
+  job:
+    chdir: false
+  searchpath:
+  - pkg://atria_ml/conf
+package: atria
+version: 0.1.0
+_zen_exclude:
+- hydra
+- package
+- version

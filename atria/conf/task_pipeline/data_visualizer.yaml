@@ -1,0 +1,24 @@
+# @package __global__
+_target_: hydra_zen.funcs.zen_processing
+_zen_target: atria_ml.task_pipelines._data_visualizer.DataVisualizer
+_zen_partial: false
+_zen_exclude:
+- hydra
+defaults:
+- _self_
+- /data_pipeline@data_pipeline: default
+data_pipeline: ???
+seed: 42
+deterministic: false
+backend: nccl
+n_devices: 1
+split: null
+hydra:
+  run:
+    dir: /tmp/data_visualizer
+  output_subdir: hydra
+  job:
+    chdir: false
+  searchpath:
+  - pkg://atria/conf
+  - pkg://atria_examples/conf

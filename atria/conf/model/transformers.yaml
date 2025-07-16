@@ -1,0 +1,13 @@
+_target_: hydra_zen.funcs.zen_processing
+_zen_target: atria_models.core.transformers_model.TransformersModel
+_zen_partial: false
+_zen_exclude:
+- name
+model_name: ???
+model_cache_dir: null
+convert_bn_to_gn: false
+is_frozen: false
+frozen_keys_patterns: null
+unfrozen_keys_patterns: null
+pretrained_checkpoint: null
+name: transformers/${.model_name}

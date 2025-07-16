@@ -1,0 +1,45 @@
+# @package __global__
+_target_: hydra_zen.funcs.zen_processing
+_zen_target: atria_ml.task_pipelines._trainer.Trainer
+_zen_partial: false
+_zen_exclude:
+- n_devices
+- backend
+- experiment_name
+defaults:
+- /data_pipeline@data_pipeline: default
+- /model_pipeline@model_pipeline: question_answering
+- /metric_factory@metric_factory.sequence_anls: sequence_anls
+- /engine@training_engine: default_training_engine
+- /engine@validation_engine: default_validation_engine
+- /engine@test_engine: default_test_engine
+- /engine@visualization_engine: default_visualization_engine
+- /data_transform@data_pipeline.runtime_transforms.train: document_instance_tokenizer/visual_question_answering
+- /data_transform@data_pipeline.runtime_transforms.evaluation: document_instance_tokenizer/visual_question_answering
+- _self_
+model_pipeline: ???
+training_engine: ???
+validation_engine: ???
+visualization_engine: ???
+test_engine: ???
+metric_factory: ???
+task_type: visual_question_answering
+data_pipeline:
+  allowed_keys:
+  - index
+  - sample_id
+  - page_id
+  - total_num_pages
+  - gt
+  - image
+output_dir: outputs/trainer/visual_question_answering/${data_pipeline.dataset.dataset_name}/${model_pipeline.model.name}/${experiment_name}
+seed: 42
+deterministic: false
+do_train: true
+do_validation: true
+do_visualization: false
+do_test: true
+vis_batch_size: 64
+n_devices: 1
+backend: nccl
+experiment_name: ???

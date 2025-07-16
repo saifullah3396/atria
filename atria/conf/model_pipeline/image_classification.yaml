@@ -1,0 +1,10 @@
+_target_: atria_models.pipelines.classification.image.ImageClassificationPipeline
+_partial_: false
+defaults:
+- _self_
+- /model@model: timm
+- /data_transform@runtime_transforms.train: image/default
+- /data_transform@runtime_transforms.evaluation: image/default
+model: ???
+checkpoint_configs: null
+mixup_config: null

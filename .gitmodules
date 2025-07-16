@@ -1,0 +1,21 @@
+[submodule "atria_core"]
+	path = atria_core
+	url = https://github.com/saifullah3396/atria_core
+[submodule "atria_datasets"]
+	path = atria_datasets
+	url = https://github.com/saifullah3396/atria_datasets
+[submodule "atria_models"]
+	path = atria_models
+	url = https://github.com/saifullah3396/atria_models
+[submodule "atria_hub"]
+	path = atria_hub
+	url = https://github.com/saifullah3396/atria_hub
+[submodule "atria_ml"]
+	path = atria_ml
+	url = https://github.com/saifullah3396/atria_ml
+[submodule "atria_registry"]
+	path = atria_registry
+	url = https://github.com/saifullah3396/atria_registry
+[submodule "atria_transforms"]
+	path = atria_transforms
+	url = https://github.com/saifullah3396/atria_transforms

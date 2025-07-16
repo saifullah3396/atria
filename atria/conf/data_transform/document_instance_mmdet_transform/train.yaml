@@ -1,0 +1,10 @@
+_target_: atria_transforms.core.mmdet.DocumentInstanceMMDetTransform
+_partial_: false
+train_scale:
+- 512
+- 400
+test_scale:
+- 512
+- 400
+is_training: true
+use_test_time_augmentation: false
