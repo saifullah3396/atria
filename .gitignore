@@ -4,7 +4,6 @@
 atria_core.egg-info/
 outputs
 tmp/
-atriax_client
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

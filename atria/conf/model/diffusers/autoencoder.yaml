@@ -4,7 +4,6 @@ _zen_partial: false
 _zen_exclude:
 - name
 model_name: ???
-num_labels: null
 model_cache_dir: null
 convert_bn_to_gn: false
 is_frozen: false

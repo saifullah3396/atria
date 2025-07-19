@@ -19,3 +19,6 @@
 [submodule "atria_transforms"]
 	path = atria_transforms
 	url = https://github.com/saifullah3396/atria_transforms
+[submodule "atriax_client"]
+	path = atriax_client
+	url = https://github.com/saifullah3396/atriax_client.git

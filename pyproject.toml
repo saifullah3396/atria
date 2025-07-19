@@ -22,3 +22,10 @@ atria-hub = { path = "atria_hub", editable = true }
 atria-transforms = { path = "atria_transforms", editable = true }
 atria-models = { path = "atria_models", editable = true }
 atria-datasets = { path = "atria_datasets", editable = true }
+
+[dependency-groups]
+dev = [
+    "factory-boy>=3.3.3",
+    "faker>=37.4.2",
+    "ipykernel>=6.29.5",
+]
