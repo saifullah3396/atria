@@ -24,4 +24,4 @@
 	url = https://github.com/saifullah3396/atriax_client.git
 [submodule "atria_metrics"]
 	path = atria_metrics
-	url = ./atria_metrics/
+	url = https://github.com/saifullah3396/atria_metrics
