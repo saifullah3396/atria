@@ -1,7 +1,0 @@
-_target_: atria_ml.training.metrics.qa.anls.ANLS
-_partial_: true
-threshold: 0.5
-output_transform:
-  path: atria_ml.training.metrics.qa.output_transforms._anls_output_transform
-  _target_: hydra_zen.funcs.get_obj
-device: cpu

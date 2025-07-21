@@ -1,6 +1,0 @@
-_target_: atria_datasets.image_classification.cifar10.Cifar10
-_partial_: false
-data_urls: null
-max_train_samples: null
-max_validation_samples: null
-max_test_samples: null

@@ -1,5 +1,0 @@
-_target_: torch.optim.lr_scheduler.MultiStepLR
-_partial_: true
-gamma: 0.1
-last_epoch: -1
-verbose: false

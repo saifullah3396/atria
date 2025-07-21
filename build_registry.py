@@ -20,19 +20,19 @@ Date: April 14, 2025
 from pathlib import Path
 
 from atria_datasets.build_registry import *  # noqa
+from atria_metrics.detection.cocoeval import *  # noqa
+from atria_metrics.instance_classification.ext_modules import *  # noqa
+from atria_metrics.instance_classification.f1_score import *  # noqa
+from atria_metrics.layout.f1_score import *  # noqa
+from atria_metrics.layout.precision import *  # noqa
+from atria_metrics.layout.recall import *  # noqa
+from atria_metrics.qa.anls import *  # noqa
+from atria_metrics.qa.sequence_anls import *  # noqa
+from atria_metrics.token_classification.seqeval import *  # noqa
 from atria_ml.task_pipelines._data_visualizer import *  # noqa
 from atria_ml.task_pipelines._evaluator import *  # noqa
 from atria_ml.task_pipelines._inferencer import *  # noqa
 from atria_ml.task_pipelines._trainer import *  # noqa
-from atria_ml.training.metrics.detection.cocoeval import *  # noqa
-from atria_ml.training.metrics.instance_classification.ext_modules import *  # noqa
-from atria_ml.training.metrics.instance_classification.f1_score import *  # noqa
-from atria_ml.training.metrics.layout.f1_score import *  # noqa
-from atria_ml.training.metrics.layout.precision import *  # noqa
-from atria_ml.training.metrics.layout.recall import *  # noqa
-from atria_ml.training.metrics.qa.anls import *  # noqa
-from atria_ml.training.metrics.qa.sequence_anls import *  # noqa
-from atria_ml.training.metrics.token_classification.seqeval import *  # noqa
 from atria_ml.training.optimizers.ext_modules import *  # noqa
 from atria_ml.training.optimizers.lars import *  # noqa
 from atria_ml.training.schedulers.cosine_annealing_lr import *  # noqa

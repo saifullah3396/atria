@@ -1,3 +1,0 @@
-_target_: atria_transforms.core.sequence.TokenizerObjectSanitizer
-_partial_: false
-apply_value_to_first_subword: true

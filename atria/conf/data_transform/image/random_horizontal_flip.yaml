@@ -1,3 +1,0 @@
-_target_: atria_transforms.core.torchvision.TorchvisionTransform
-_partial_: false
-transform: RandomHorizontalFlip

@@ -204,6 +204,7 @@ version = "0.0.0"
 source = { editable = "atria_core" }
 dependencies = [
     { name = "beautifulsoup4" },
+    { name = "codename" },
     { name = "coloredlogs" },
     { name = "coverage" },
     { name = "factory-boy" },
@@ -223,6 +224,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "beautifulsoup4", specifier = "==4.12.2" },
+    { name = "codename", specifier = ">=1.1" },
     { name = "coloredlogs", specifier = "==15.0.1" },
     { name = "coverage" },
     { name = "coverage", marker = "extra == 'test'" },
@@ -333,6 +335,12 @@ dev = [
     { name = "pytest", specifier = ">=8.4.1" },
     { name = "ruff", specifier = ">=0.12.2" },
 ]
+docsets = [
+    { name = "docile-benchmark", specifier = "==0.3.4" },
+    { name = "editdistance" },
+    { name = "pyarrow-hotfix", specifier = ">=0.7" },
+    { name = "sacremoses" },
+]
 
 [[package]]
 name = "atria-hub"
@@ -379,6 +387,44 @@ dev = [
 ]
 
 [[package]]
+name = "atria-metrics"
+version = "0.0.0"
+source = { editable = "atria_metrics" }
+dependencies = [
+    { name = "anls" },
+    { name = "atria-core" },
+    { name = "atria-registry" },
+    { name = "pytorch-ignite" },
+    { name = "seqeval" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "anls", specifier = ">=0.0.2" },
+    { name = "atria-core", editable = "atria_core" },
+    { name = "atria-registry", editable = "atria_registry" },
+    { name = "pytorch-ignite", specifier = ">=0.5.2" },
+    { name = "seqeval" },
+]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "coverage", specifier = ">=7.9.2" },
+    { name = "ipykernel", specifier = ">=6.28.1" },
+    { name = "mypy", specifier = ">=1.16.1" },
+    { name = "pytest", specifier = ">=8.4.1" },
+    { name = "ruff", specifier = ">=0.12.2" },
+]
+torch-cpu = [
+    { name = "torch", specifier = "==2.1.2", index = "https://download.pytorch.org/whl/cpu", conflict = { package = "atria-metrics", group = "torch-cpu" } },
+    { name = "torchvision", specifier = "==0.16.2", index = "https://download.pytorch.org/whl/cpu", conflict = { package = "atria-metrics", group = "torch-cpu" } },
+]
+torch-gpu = [
+    { name = "torch", specifier = "==2.1.2", index = "https://download.pytorch.org/whl/cu121", conflict = { package = "atria-metrics", group = "torch-gpu" } },
+    { name = "torchvision", specifier = "==0.16.2", index = "https://download.pytorch.org/whl/cu121", conflict = { package = "atria-metrics", group = "torch-gpu" } },
+]
+
+[[package]]
 name = "atria-ml"
 version = "0.0.0"
 source = { editable = "atria_ml" }
@@ -387,9 +433,11 @@ dependencies = [
     { name = "atria-core" },
     { name = "atria-datasets" },
     { name = "atria-hub" },
+    { name = "atria-metrics" },
     { name = "atria-models" },
     { name = "atria-registry" },
     { name = "atria-transforms" },
+    { name = "codename" },
     { name = "diffusers" },
     { name = "h5py" },
     { name = "mmcv" },
@@ -408,9 +456,11 @@ requires-dist = [
     { name = "atria-core", editable = "atria_core" },
     { name = "atria-datasets", editable = "atria_datasets" },
     { name = "atria-hub", editable = "atria_hub" },
+    { name = "atria-metrics", editable = "atria_metrics" },
     { name = "atria-models", editable = "atria_models" },
     { name = "atria-registry", editable = "atria_registry" },
     { name = "atria-transforms", editable = "atria_transforms" },
+    { name = "codename", specifier = ">=1.1" },
     { name = "diffusers", specifier = ">=0.34.0" },
     { name = "h5py", specifier = ">=3.14.0" },
     { name = "mmcv", url = "https://download.openmmlab.com/mmcv/dist/cu121/torch2.1.0/mmcv-2.1.0-cp311-cp311-manylinux1_x86_64.whl" },
@@ -447,6 +497,7 @@ source = { editable = "atria_models" }
 dependencies = [
     { name = "atria-core" },
     { name = "atria-hub" },
+    { name = "atria-metrics" },
     { name = "atria-registry" },
     { name = "atria-transforms" },
     { name = "diffusers" },
@@ -462,6 +513,7 @@ dependencies = [
 requires-dist = [
     { name = "atria-core", extras = ["torch-gpu"], editable = "atria_core" },
     { name = "atria-hub", extras = ["torch-gpu"], editable = "atria_hub" },
+    { name = "atria-metrics", editable = "atria_metrics" },
     { name = "atria-registry", extras = ["torch-gpu"], editable = "atria_registry" },
     { name = "atria-transforms", editable = "atria_transforms" },
     { name = "diffusers", specifier = ">=0.34.0" },
@@ -697,6 +749,12 @@ wheels = [
 ]
 
 [[package]]
+name = "codename"
+version = "1.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/c8/44/682d39480678b0d3a07c7c7c08e5c102e4807938ed9d126a77e21be00afd/codename-1.1.tar.gz", hash = "sha256:863780fa47521baa19087015d408b19dac4e93c6eaac4b1cc59a7ea728ea15fd", size = 3493, upload_time = "2018-01-30T13:22:36.71Z" }
+
+[[package]]
 name = "colorama"
 version = "0.4.6"
 source = { registry = "https://pypi.org/simple" }
@@ -779,7 +837,7 @@ name = "cryptography"
 version = "45.0.5"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "cffi", marker = "platform_python_implementation != 'PyPy'" },
+    { name = "cffi", marker = "platform_python_implementation != 'PyPy' and sys_platform != 'darwin'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/95/1e/49527ac611af559665f71cbb8f92b332b5ec9c6fbc4e88b0f8e92f5e85df/cryptography-45.0.5.tar.gz", hash = "sha256:72e76caa004ab63accdf26023fccd1d087f6d90ec6048ff33ad0445abf7f605a", size = 744903, upload_time = "2025-07-02T13:06:25.941Z" }
 wheels = [
@@ -1950,7 +2008,7 @@ name = "nvidia-cudnn-cu12"
 version = "8.9.2.26"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "nvidia-cublas-cu12" },
+    { name = "nvidia-cublas-cu12", marker = "(platform_machine != 'aarch64' and sys_platform == 'linux') or (sys_platform != 'darwin' and sys_platform != 'linux')" },
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/ff/74/a2e2be7fb83aaedec84f391f082cf765dfb635e7caa9b49065f73e4835d8/nvidia_cudnn_cu12-8.9.2.26-py3-none-manylinux1_x86_64.whl", hash = "sha256:5ccb288774fdfb07a7e7025ffec286971c06d8d7b4fb162525334616d7629ff9", size = 731725872, upload_time = "2023-06-01T19:24:57.328Z" },
@@ -1977,9 +2035,9 @@ name = "nvidia-cusolver-cu12"
 version = "11.4.5.107"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "nvidia-cublas-cu12" },
-    { name = "nvidia-cusparse-cu12" },
-    { name = "nvidia-nvjitlink-cu12" },
+    { name = "nvidia-cublas-cu12", marker = "(platform_machine != 'aarch64' and sys_platform == 'linux') or (sys_platform != 'darwin' and sys_platform != 'linux')" },
+    { name = "nvidia-cusparse-cu12", marker = "(platform_machine != 'aarch64' and sys_platform == 'linux') or (sys_platform != 'darwin' and sys_platform != 'linux')" },
+    { name = "nvidia-nvjitlink-cu12", marker = "(platform_machine != 'aarch64' and sys_platform == 'linux') or (sys_platform != 'darwin' and sys_platform != 'linux')" },
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/bc/1d/8de1e5c67099015c834315e333911273a8c6aaba78923dd1d1e25fc5f217/nvidia_cusolver_cu12-11.4.5.107-py3-none-manylinux1_x86_64.whl", hash = "sha256:8a7ec542f0412294b15072fa7dab71d31334014a69f953004ea7a118206fe0dd", size = 124161928, upload_time = "2023-04-19T15:51:25.781Z" },
@@ -1990,7 +2048,7 @@ name = "nvidia-cusparse-cu12"
 version = "12.1.0.106"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "nvidia-nvjitlink-cu12" },
+    { name = "nvidia-nvjitlink-cu12", marker = "(platform_machine != 'aarch64' and sys_platform == 'linux') or (sys_platform != 'darwin' and sys_platform != 'linux')" },
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/65/5b/cfaeebf25cd9fdec14338ccb16f6b2c4c7fa9163aefcf057d86b9cc248bb/nvidia_cusparse_cu12-12.1.0.106-py3-none-manylinux1_x86_64.whl", hash = "sha256:f3b50f42cf363f86ab21f720998517a659a48131e8d538dc02f8768237bd884c", size = 195958278, upload_time = "2023-04-19T15:51:49.939Z" },
@@ -2832,13 +2890,23 @@ name = "secretstorage"
 version = "3.3.3"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "cryptography" },
-    { name = "jeepney" },
+    { name = "cryptography", marker = "sys_platform != 'darwin'" },
+    { name = "jeepney", marker = "sys_platform != 'darwin'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/53/a4/f48c9d79cb507ed1373477dbceaba7401fd8a23af63b837fa61f1dcd3691/SecretStorage-3.3.3.tar.gz", hash = "sha256:2403533ef369eca6d2ba81718576c5e0f564d5cca1b58f73a8b23e7d4eeebd77", size = 19739, upload_time = "2022-08-13T16:22:46.976Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/54/24/b4293291fa1dd830f353d2cb163295742fa87f179fcc8a20a306a81978b7/SecretStorage-3.3.3-py3-none-any.whl", hash = "sha256:f356e6628222568e3af06f2eba8df495efa13b3b63081dafd4f7d9a7b7bc9f99", size = 15221, upload_time = "2022-08-13T16:22:44.457Z" },
 ]
+
+[[package]]
+name = "seqeval"
+version = "1.2.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "numpy" },
+    { name = "scikit-learn" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/9d/2d/233c79d5b4e5ab1dbf111242299153f3caddddbb691219f363ad55ce783d/seqeval-1.2.2.tar.gz", hash = "sha256:f28e97c3ab96d6fcd32b648f6438ff2e09cfba87f05939da9b3970713ec56e6f", size = 43605, upload_time = "2020-10-24T00:24:54.926Z" }
 
 [[package]]
 name = "shapely"
@@ -3235,7 +3303,7 @@ name = "triton"
 version = "2.1.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "filelock" },
+    { name = "filelock", marker = "(platform_machine != 'aarch64' and sys_platform == 'linux') or (sys_platform != 'darwin' and sys_platform != 'linux')" },
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/5c/c1/54fffb2eb13d293d9a429fead3646752ea190de0229bcf3d591ba2481263/triton-2.1.0-0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:919b06453f0033ea52c13eaf7833de0e57db3178d23d4e04f9fc71c4f2c32bf8", size = 89234153, upload_time = "2023-09-01T07:26:20.161Z" },

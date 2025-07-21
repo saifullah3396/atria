@@ -1,8 +1,0 @@
-_target_: ignite.metrics.accuracy.Accuracy
-_partial_: true
-output_transform:
-  path: atria_ml.training.metrics.instance_classification.output_transforms._output_transform
-  _target_: hydra_zen.funcs.get_obj
-is_multilabel: false
-device: cpu
-skip_unrolling: false

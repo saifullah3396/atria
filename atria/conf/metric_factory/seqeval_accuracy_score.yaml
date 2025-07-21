@@ -1,7 +1,0 @@
-_target_: atria_ml.training.metrics.token_classification.seqeval.seqeval_classification_metric
-_partial_: true
-metric_func: seqeval.metrics.accuracy_score
-output_transform:
-  path: atria_ml.training.metrics.token_classification.output_transforms._output_transform
-  _target_: hydra_zen.funcs.get_obj
-device: cpu

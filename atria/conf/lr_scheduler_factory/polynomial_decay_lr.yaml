@@ -1,3 +1,0 @@
-_target_: atria_ml.training.schedulers.polynomial_decay_lr.polynomial_decay_lr
-_partial_: true
-max_decay_steps: -1

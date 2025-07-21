@@ -1,6 +1,0 @@
-_target_: atria_ml.training.metrics.detection.cocoeval.COCOEvalMetric
-_partial_: true
-output_transform:
-  path: atria_ml.training.metrics.detection.output_transforms._cocoeval_output_transform
-  _target_: hydra_zen.funcs.get_obj
-device: cpu
