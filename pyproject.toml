@@ -12,6 +12,7 @@ dependencies = [
     "atria-models",
     "atria-registry",
     "atria-transforms",
+    "openapi-python-client>=0.25.2",
 ]
 
 [tool.uv.sources]

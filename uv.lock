@@ -180,6 +180,7 @@ dependencies = [
     { name = "atria-models" },
     { name = "atria-registry" },
     { name = "atria-transforms" },
+    { name = "openapi-python-client" },
 ]
 
 [package.dev-dependencies]
@@ -198,6 +199,7 @@ requires-dist = [
     { name = "atria-models", editable = "atria_models" },
     { name = "atria-registry", editable = "atria_registry" },
     { name = "atria-transforms", editable = "atria_transforms" },
+    { name = "openapi-python-client", specifier = ">=0.25.2" },
 ]
 
 [package.metadata.requires-dev]
