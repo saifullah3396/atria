@@ -28,3 +28,6 @@
 [submodule "atria_cli"]
 	path = atria_cli
 	url = https://github.com/saifullah3396/atria_cli.git
+[submodule "atria_insights"]
+	path = atria_insights
+	url = git@github.com:saifullah3396/atria_insights.git
