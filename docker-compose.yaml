@@ -1,0 +1,59 @@
+name: atriax_agents
+services:
+  evaluation-agent:
+    build:
+      context: .
+      dockerfile: ./services/evaluation_agent/Dockerfile.dev
+    # develop:
+    #   watch:
+    #     - action: sync
+    #       path: .
+    #       target: /app
+    #       ignore:
+    #         - .venv/
+    #     - action: rebuild
+    #       path: ./pyproject.toml
+    container_name: evaluation_agent
+    volumes:
+      - ./services/evaluation_agent/main.py:/app/services/evaluation_agent/main.py
+      - ./atria_cli/src:/app/atria_cli/src
+      - ./atria_core/src:/app/atria_core/src
+      - ./atria_datasets/src:/app/atria_datasets/src
+      - ./atria_hub/src:/app/atria_hub/src
+      - ./atria_insights/src:/app/atria_insights/src
+      - ./atria_metrics/src:/app/atria_metrics/src
+      - ./atria_ml/src:/app/atria_ml/src
+      - ./atria_models/src:/app/atria_models/src
+      - ./atria_registry/src:/app/atria_registry/src
+      - ./atria_transforms/src:/app/atria_transforms/src
+      - ./atriax_agents/src:/app/atriax_agents/src
+      - ./atriax_client:/app/atriax_client
+    networks:
+      - shared_net
+    environment:
+      # atriax client configuration
+      - ATRIAX_URL=$ATRIAX_URL
+      - ATRIAX_STORAGE_URL=$ATRIAX_STORAGE_URL
+      - ATRIAX_ANON_KEY=$ATRIAX_ANON_KEY
+      - ATRIAX_USERNAME=$ATRIAX_USERNAME
+      - ATRIAX_PASSWORD=$ATRIAX_PASSWORD
+
+      # RabbitMQ configuration
+      - RABBITMQ_HOST=$RABBITMQ_HOST
+      - RABBITMQ_USER=$RABBITMQ_USER
+      - RABBITMQ_PASS=$RABBITMQ_PASS
+      - RABBITMQ_EXCHANGE_NAME=$RABBITMQ_EXCHANGE_NAME
+      - ROUTING_KEY=$EVALUATOR_ROUTING_KEY
+      - QUEUE=$EVALUATOR_QUEUE
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+networks:
+  shared_net:
+    external: true
+    name: atriax_shared_net

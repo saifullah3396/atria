@@ -31,3 +31,7 @@
 [submodule "atria_insights"]
 	path = atria_insights
 	url = git@github.com:saifullah3396/atria_insights.git
+[submodule "atriax_agents"]
+	path = atriax_agents
+	url = https://github.com/saifullah3396/atriax_agents.git
+	branch = atriax-update-

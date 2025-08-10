@@ -67,7 +67,6 @@
         }
     ],
     "python.analysis.include": [
-        "./atria",
         "./atria_core/src",
         "./atria_datasets/src",
         "./atria_hub/src",
@@ -75,10 +74,11 @@
         "./atria_models/src",
         "./atria_registry/src",
         "./atria_transforms/src",
+        "./atriax_agents/src",
+        "./atriax_client",
 
     ],
     "python.analysis.extraPaths": [
-        "./atria",
         "./atria_core/src",
         "./atria_datasets/src",
         "./atria_hub/src",
@@ -86,6 +86,8 @@
         "./atria_models/src",
         "./atria_registry/src",
         "./atria_transforms/src",
+        "./atriax_agents/src",
+        "./atriax_client",
     ],
-    "python.defaultInterpreterPath": "./.venv/bin/python",
+    "python.defaultInterpreterPath": "./atriax_agents/.venv/bin/python",
 }

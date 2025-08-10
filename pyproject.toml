@@ -5,24 +5,8 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = "==3.11.*"
 dependencies = [
-    "atria-core",
-    "atria-datasets",
-    "atria-hub",
-    "atria-ml",
-    "atria-models",
-    "atria-registry",
-    "atria-transforms",
     "openapi-python-client>=0.25.2",
 ]
-
-[tool.uv.sources]
-atria-core = { path = "atria_core", editable = true }
-atria-registry = { path = "atria_registry", editable = true }
-atria-ml = { path = "atria_ml", editable = true }
-atria-hub = { path = "atria_hub", editable = true }
-atria-transforms = { path = "atria_transforms", editable = true }
-atria-models = { path = "atria_models", editable = true }
-atria-datasets = { path = "atria_datasets", editable = true }
 
 [dependency-groups]
 dev = [
