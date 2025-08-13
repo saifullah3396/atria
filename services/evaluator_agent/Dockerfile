@@ -50,7 +50,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --locked --no-install-project --group evaluation
 
 COPY ./atriax_agents /app/atriax_agents
-COPY ./services/evaluation_agent /app/services/evaluation_agent
+COPY ./services/evaluator_agent /app/services/evaluator_agent
 
 WORKDIR /app/atriax_agents
 
@@ -72,4 +72,4 @@ ENV PYTHONPATH=/app/atria_cli/src:\
 /app/atria_registry/src:\
 /app/atriax_agents/src
 
-CMD ["python", "/app/services/evaluation_agent/main.py"]
+CMD ["python", "/app/services/evaluator_agent/main.py"]

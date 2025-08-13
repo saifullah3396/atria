@@ -74,6 +74,7 @@
         "./atria_models/src",
         "./atria_registry/src",
         "./atria_transforms/src",
+        "./atria_insights/src",
         "./atriax_agents/src",
         "./atriax_client",
 
@@ -87,6 +88,7 @@
         "./atria_registry/src",
         "./atria_transforms/src",
         "./atriax_agents/src",
+        "./atria_insights/src",
         "./atriax_client",
     ],
     "python.defaultInterpreterPath": "./atriax_agents/.venv/bin/python",

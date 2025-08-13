@@ -32,21 +32,6 @@ ENV PATH="/app/.venv/bin:$PATH"
 # # Ref: https://docs.astral.sh/uv/guides/integration/docker/#caching
 # ENV UV_LINK_MODE=copy
 
-# must be copied before 
-RUN --mount=type=cache,target=/root/.cache/uv \
-    --mount=type=bind,source=./atriax_agents/uv.lock,target=uv.lock \
-    --mount=type=bind,source=./atriax_agents/pyproject.toml,target=pyproject.toml \
-    uv sync --locked --no-install-project --group evaluation
-
-COPY ./atriax_agents /app/atriax_agents
-
-WORKDIR /app/atriax_agents
-
-# Sync the project
-# Ref: https://docs.astral.sh/uv/guides/integration/docker/#intermediate-layers
-RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync --locked --group evaluation
-
 # Copy the project dependencies into the image
 COPY ./atria_cli/src/ /app/atria_cli/src/
 COPY ./atria_core/src/ /app/atria_core/src/
@@ -57,14 +42,26 @@ COPY ./atria_metrics/src/ /app/atria_metrics/src/
 COPY ./atria_ml/src/ /app/atria_ml/src/
 COPY ./atria_models/src/ /app/atria_models/src/
 COPY ./atria_registry/src/ /app/atria_registry/src/
-COPY ./atria_transforms/src/ /app/atria_transforms/src/
-COPY ./atriax_client /app/atriax_client
+
+# must be copied before 
+RUN --mount=type=cache,target=/root/.cache/uv \
+    --mount=type=bind,source=./atriax_agents/uv.lock,target=uv.lock \
+    --mount=type=bind,source=./atriax_agents/pyproject.toml,target=pyproject.toml \
+    uv sync --locked --no-install-project --group evaluation
+
+COPY ./atriax_agents /app/atriax_agents
 COPY ./services/evaluation_agent /app/services/evaluation_agent
+
+WORKDIR /app/atriax_agents
+
+# Sync the project
+# Ref: https://docs.astral.sh/uv/guides/integration/docker/#intermediate-layers
+RUN --mount=type=cache,target=/root/.cache/uv \
+    uv sync --locked --group evaluation
 
 # Set the default command
 # Ref: https://fastapi.tiangolo.com/deployment/docker/
-ENV PYTHONPATH=\
-/app/atria_cli/src:\
+ENV PYTHONPATH=$PYTHONPATH:/app/atria_cli/src:\
 /app/atria_core/src:\
 /app/atria_datasets/src:\
 /app/atria_hub/src:\
@@ -73,8 +70,6 @@ ENV PYTHONPATH=\
 /app/atria_ml/src:\
 /app/atria_models/src:\
 /app/atria_registry/src:\
-/app/atria_transforms/src:\
-/app/atriax_agents/src:\
-/app/atriax_client:
+/app/atriax_agents/src
 
-CMD ["python", "/app/services/evaluation_agent/main.py"]
+CMD ["python", "/app/services/explainer_agent/main.py"]
