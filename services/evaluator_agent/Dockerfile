@@ -72,4 +72,4 @@ ENV PYTHONPATH=/app/atria_cli/src:\
 /app/atria_registry/src:\
 /app/atriax_agents/src
 
-CMD ["python", "/app/services/evaluator_agent/main.py"]
+CMD ["CUDA_LAUNCH_BLOCKING=1", "python", "/app/services/evaluator_agent/main.py"]
