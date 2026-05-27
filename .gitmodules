@@ -35,3 +35,7 @@
 	path = atriax_agents
 	url = https://github.com/saifullah3396/atriax_agents.git
 	branch = atriax-update-
+[submodule "torchxai"]
+	path = torchxai
+	url = https://github.com/saifullah3396/torchxai
+	branch = atria-bridge

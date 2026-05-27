@@ -59,6 +59,7 @@ COPY ./atria_models/src/ /app/atria_models/src/
 COPY ./atria_registry/src/ /app/atria_registry/src/
 COPY ./atria_transforms/src/ /app/atria_transforms/src/
 COPY ./atriax_client /app/atriax_client
+COPY ./torchxai/src/ /app/torchxai/src/
 COPY ./services/evaluator_agent /app/services/evaluator_agent
 
 # Set the default command
@@ -75,6 +76,7 @@ ENV PYTHONPATH=\
 /app/atria_registry/src:\
 /app/atria_transforms/src:\
 /app/atriax_agents/src:\
-/app/atriax_client:
+/app/atriax_client:\
+/app/torchxai/src
 
 CMD ["python", "/app/services/evaluator_agent/main.py"]

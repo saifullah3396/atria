@@ -76,7 +76,9 @@
         "./atria_transforms/src",
         "./atria_insights/src",
         "./atriax_agents/src",
+        "./atria_metrics/src",
         "./atriax_client",
+        "./torchxai/src",
 
     ],
     "python.analysis.extraPaths": [
@@ -89,7 +91,9 @@
         "./atria_transforms/src",
         "./atriax_agents/src",
         "./atria_insights/src",
+        "./atria_metrics/src",
         "./atriax_client",
+        "./torchxai/src",
     ],
     "python.defaultInterpreterPath": "./atriax_agents/.venv/bin/python",
 }

@@ -28,6 +28,7 @@ services:
       - ./atria_transforms/src:/app/atria_transforms/src
       - ./atriax_agents/src:/app/atriax_agents/src
       - ./atriax_client:/app/atriax_client
+      - ./torchxai/src:/app/torchxai/src
     networks:
       - shared_net
     environment:
